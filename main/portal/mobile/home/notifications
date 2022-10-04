@@ -1,0 +1,1008 @@
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/favicon.png">
+<link rel="icon" type="image/png" href="../../assets/img/favicon.png" />
+<title>Notifications</title>
+<link rel="stylesheet" type="text/css" href="../assets/styles/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../assets/styles/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../assets/fonts/css/fontawesome-all.min.css">    
+<!--link rel="manifest" href="../assets/scripts/_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js"-->
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/app/icons/icon-192x192.png">
+<link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
+<!-- Fantasy -->
+<link href="https://unpkg.com/@videojs/themes@1/dist/sea/index.css" rel="stylesheet">
+<style>
+.radio-view{
+  margin: auto;
+  padding: 0;
+  position:relative;
+  max-width:520px;
+
+}
+
+
+.iphone {
+  background: #ffffff;
+  border-radius: 1em;
+  box-sizing: border-box;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+}
+.iphone .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 0.75em;
+  margin-bottom: 2em;
+}
+.iphone .album-cover {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.iphone .album-cover img {
+  width: 160px;
+  height: 156px;
+  border-radius: 50%;
+}
+.iphone .album-cover .song-title {
+  
+  margin-top:10px;
+  text-align: center;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  color: #65717e;
+}
+.iphone .album-cover .artist-title {
+  text-align: center;
+  margin-top: 1em;
+  padding: 3px 20px 3px 20px;
+  font-size: 1em;
+  color: #ffffff;
+  background-color: #3333ff;
+  border-radius: 5px;
+}
+.iphone .track {
+  margin-top: 1em;
+  height: 10px;
+}
+.iphone .track div {
+  width: 5%;
+  height: 100%;
+  background: #3333ff;
+  opacity: 0.75;
+  border-radius: 15px;
+}
+.iphone .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 0;
+}
+.iphone .lyrics {
+  color: #7e8a98;
+  margin-top: 2em;
+  text-align: center;
+  font-size: 0.75em;
+  display: flex;
+  flex-direction: column;
+}
+
+.neu {
+  box-shadow: -5px -5px 15px 0px #ffffff9e, 5px 5px 15px 0px #a3b1c6a8;
+  background: #e0e5ec;
+  border-radius: 2em;
+  border: 0;
+}
+
+.btn-r {
+  padding: 15px 20px 15px 20px;
+  border-radius: 30px;
+  color: #7e8a98;
+  outline: none;
+  cursor: pointer;
+  margin:0 25px 0px 25px;
+}
+.btn-r.lg {
+  font-size: 1em;
+}
+.btn-r:hover {
+  cursor: pointer;
+  background: #eff2f5;
+}
+
+.red {
+  color: #e22d49;
+}
+.spin {
+  -webkit-animation-name: spin;
+  -webkit-animation-duration: 20000ms;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: spin;
+  -moz-animation-duration: 20000ms;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: spin;
+  -ms-animation-duration: 20000ms;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  -o-transition: rotate(3600deg);
+}
+@-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+</style></head>
+    
+<body class="theme-light">
+    
+<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
+    
+<div id="page">
+    
+    <!-- Page Nav Title Header -->
+    <div class="header header-fixed header-logo-center">
+        <a href="./" class="header-title">Notifications</a>
+                    <a href="#" data-back-button class="font-17 header-icon header-icon-1"><i class="fas fa-chevron-left"></i></a>
+                <a href="notifications" class="font-17 header-icon header-icon-4"><i class="fas fa-envelope"></i><span class="badge bg-red-dark">1</span></a>
+        <a href="#" data-toggle-theme class="font-17 header-icon header-icon-3 show-on-theme-dark"><i class="fas fa-sun"></i></a>
+        <a href="#" data-toggle-theme class="font-17 header-icon header-icon-3 show-on-theme-light"><i class="fas fa-moon"></i></a>
+    </div>
+
+    <!-- Page Footer -->
+    <div id="footer-bar" class="footer-bar-6">
+        <a href="./"><i class="fa fa-home"></i><span>Home</span></a>
+        <a href="buy-airtime"><i class="fa fa-phone"></i><span>Airtime</span></a>
+        <a href="buy-data" ><i class="fa fa-wifi"></i><span>Data</span></a>
+        <!--a href="./" class="circle-nav active-nav"><i class="fa fa-home"></i><span>Home</span></a-->
+        <a href="#" data-menu="menu-main"><i class="fa fa-bars"></i><span>Menu</span></a>
+</div>    
+    
+		
+    <!-- Page content start here-->
+        <div class="page-content header-clear-medium">
+        
+        <div class="card card-style">
+            <div class="content">
+            <p class="mb-0 text-center font-600 color-highlight">All Notifications</p>
+                <h1 class="text-center">Notifications</h1>
+            </div>
+        
+
+        <div class="timeline-body mt-0">
+            <div class="timeline-deco"></div>
+                        <div class="timeline-item mt-2">
+                <i class="fa fa-envelope bg-blue-dark color-white shadow-l timeline-icon"></i>
+                <div class="timeline-item-content rounded-s">
+                    <h5 class="font-400 pt-1 pb-1"><b>ORELOPE DATA WALLET</b></h5>
+                    <h5 class="font-400 pt-1 pb-1">Message: *For manual funding*
+
+*There will be #50 charges on all manual funding*
+
+Make payment to one of these account:
+
+7068557661
+ALIU Kawuu IBRAHIM
+OPAY/PAYCOM
+
+
+2092213160
+IBRAHIM ALIU
+U.B.A
+
+
+Minimum funding #200
+
+Send the payment screenshot or sender name 
+
+*Then drop your Username*
+For more information call this number
+07068557661</h5>
+                    <h5 class="font-400 pt-1 pb-1"><span class="opacity-30">04 Sep 2022 03:23AM</span></h5>
+                </div>
+            </div>	
+            	
+
+        </div>
+    </div>
+
+        
+</div>
+
+    <!-- Page content ends here-->
+
+    <!-- Notification Message -->
+            <!-- Notification Message -->
+
+    <!-- Models -->
+    
+    <button id="continue-transaction-prompt-btn" data-menu="continue-transaction-prompt" class="d-none"></button>
+
+    <!-- Verify transaction Prompt Model -->
+    <div id="continue-transaction-prompt" 
+         class="menu menu-box-modal rounded-m" 
+         data-menu-height="350" 
+         data-menu-width="300">
+        <h1 class="text-center mt-4"><i class="fa fa-3x fa-info-circle scale-box color-blue-dark shadow-xl rounded-circle"></i></h1>
+        <h3 class="text-center mt-3 font-700">Are you sure?</h3>
+        <p class="boxed-text-xl" id="continue-transaction-prompt-msg"></p>
+        <div class="row mb-0 me-3 ms-3">
+            <div class="col-6">
+                <a href="#" class="btn close-menu btn-full btn-m color-red-dark border-red-dark font-600 rounded-s">No</a>
+            </div>
+            <div class="col-6">
+                <a href="#" data-menu="pin-modal" class="btn btn-full btn-m color-green-dark border-green-dark font-600 rounded-s">Yes</a>
+            </div>
+        </div>
+    </div> 
+    
+    <!-- Confirm Trasaction Pin Model -->
+    <div id="pin-modal" 
+         class="menu menu-box-modal rounded-m bg-theme" 
+         data-menu-width="300"
+         data-menu-height="350">
+        <div class="menu-title">
+            <p class="color-highlight">Confirm Transaction </p>
+            <h1 class="font-800">Enter Pin</h1>
+            <a href="#" class="close-menu"><i class="fa fa-times-circle"></i></a>
+        </div>
+        
+        <div class="content">
+            <div class="divider mt-n2"></div>
+            
+            <div class="row mb-0">
+                <div class="col-12">
+                    <div class="input-style input-style-always-active has-borders mb-4">
+                        <label for="form1" class="color-highlight">Transaction Pin</label>
+                        <input type="number" id="thetranspin" maxlength="4" class="form-control" placeholder="1234" required>
+                    </div>
+                </div>
+            </div>
+            <button action-btn="" id="transpinbtn" style="width:100%" class="close-menu btn btn-full gradient-blue font-13 btn-m font-600 mt-3 rounded-s">Continue</button>
+        </div>
+    </div>
+
+    <!-- Agent Account Upgrade Model -->
+    <div id="agent-upgrade-modal" 
+         class="menu menu-box-modal rounded-m bg-theme" 
+         data-menu-width="300"
+         data-menu-height="450">
+        <div class="menu-title">
+            <p class="color-highlight">Confirm Transaction </p>
+            <h1 class="font-800">Enter Pin</h1>
+            <a href="#" class="close-menu"><i class="fa fa-times-circle"></i></a>
+        </div>
+        
+        <div class="content">
+            <div class="divider mt-n2"></div>
+            <div id="agent-upgrade-msg" class="text-danger mb-3">
+            You are about to upgrade to an Agent Account. 
+            You can view our pricing page for details about the discounts available for Agents. 
+            <br/> You would be charged a total of N0 for this service. 
+            To continue, enter your transaction pin below.
+            </div>
+            <form action="./" method="POST" >
+            <div class="row mb-0">
+                <div class="col-12">
+                    <div class="input-style input-style-always-active has-borders mb-4">
+                        <input type="password" name="kpin" maxlength="4" class="form-control" placeholder="1234" required>
+                        <label for="form1" class="color-highlight">Transaction Pin</label>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" name="upgrade-to-agent" id="agent-upgrade-btn" style="width:100%" class="btn btn-full gradient-blue font-13 btn-m font-600 mt-3 rounded-s">Continue</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Vendor Account Upgrade Model -->
+    <div id="vendor-upgrade-modal" 
+         class="menu menu-box-modal rounded-m bg-theme" 
+         data-menu-width="300"
+         data-menu-height="450">
+        <div class="menu-title">
+            <p class="color-highlight">Confirm Transaction </p>
+            <h1 class="font-800">Enter Pin</h1>
+            <a href="#" class="close-menu"><i class="fa fa-times-circle"></i></a>
+        </div>
+        
+        <div class="content">
+            <div class="divider mt-n2"></div>
+            <div id="vendor-upgrade-msg" class="text-danger mb-3">
+            You are about to upgrade to a Vendor Account. 
+            You can view our pricing page for details about the discounts available for Vendors. 
+            <br/> You would be charged a total of N0 for this service. 
+            To continue, enter your transaction pin below.
+            </div>
+            <form action="./" method="POST" >
+            <div class="row mb-0">
+                <div class="col-12">
+                    <div class="input-style input-style-always-active has-borders mb-4">
+                        <input type="password" name="kpin" maxlength="4" class="form-control" placeholder="1234" required>
+                        <label for="form1" class="color-highlight">Transaction Pin</label>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" name="upgrade-to-vendor" id="vendor-upgrade-btn" style="width:100%" class="btn btn-full gradient-blue font-13 btn-m font-600 mt-3 rounded-s">Continue</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    
+    
+    <!-- Main Menu--> 
+    <div id="menu-main" class="menu menu-box-left rounded-0" data-menu-width="280" data-menu-active="nav-pages">
+        <div class="mt-4"></div>
+<div class="list-group list-custom-small list-menu">
+
+    <a href="./">
+        <i class="fa fa-home gradient-blue color-white"></i>
+        <span>Home</span>
+        <i class="fa fa-angle-right"></i>
+    </a>
+    <a href="transactions">
+        <i class="fa fa-receipt gradient-blue color-white"></i>
+        <span>Transactions</span>
+        <i class="fa fa-angle-right"></i>
+    </a>
+    <a href="pricing">
+        <i class="fa fa-list-alt gradient-blue color-white"></i>
+        <span>Pricing</span>
+        <i class="fa fa-angle-right"></i>
+    </a>
+    <a href="notifications">
+        <i class="fa fa-list gradient-blue color-white"></i>
+        <span>Notifications</span>
+        <i class="fa fa-angle-right"></i>
+    </a>
+    <a href="profile">
+        <i class="fa fa-user gradient-blue color-white"></i>
+        <span>Profile</span>
+        <i class="fa fa-angle-right"></i>
+    </a>
+    <a href="logout">
+        <i class="fa fa-lock gradient-blue color-white"></i>
+        <span>Logout</span>
+        <i class="fa fa-angle-right"></i>
+    </a>
+    
+</div>
+
+    </div>
+    
+    <!-- Share Menu-->
+    <div id="menu-share" class="menu menu-box-bottom rounded-m" data-menu-load="../menu/menu-share.php" data-menu-height="370"></div>  
+    
+    <!-- Colors Menu-->
+    <div id="menu-colors" class="menu menu-box-bottom rounded-m" data-menu-load="../menu/menu-colors.php" data-menu-height="480"></div> 
+     
+    
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../assets/scripts/bootstrap.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" src="../assets/scripts/custom.js?v=1.8"></script>
+<script>
+    $("document").ready(function(){
+        
+        $("#thetranspin").val(null);
+        
+        //Update Profile Password
+        $("#passForm").submit(function(e){
+            e.preventDefault();
+
+            if($("#new-pass").val() != $("#retype-pass").val()){
+                swal("Error!","New Password & Retype Password Don't Match.","error");
+                return 0;
+            }
+
+            $('#update-pass-btn').removeClass("gradient-highlight");
+            $('#update-pass-btn').addClass("btn-secondary");
+            $('#update-pass-btn').html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Updating ...');
+            
+            
+            $.ajax({
+                url:'home/includes/route.php?update-pass',
+                data: new FormData($(this)[0]),
+                cache: false,
+                contentType: false,
+                processData: false,
+                method: 'POST',
+                type: 'POST',
+                success:function(resp){
+                    console.log(resp);
+                    if(resp == 0){
+                        swal('Alert!!',"Password Updated Successfully.","success");
+                        $("#old-pass").val("");
+                        $("#new-pass").val("");
+                        $("#retype-pass").val("");
+                    }
+                    else if(resp == 1){
+                        swal('Alert!!',"Old Password Is Incorrect.","error");
+                        $("#old-pass").val("");
+                        $("#new-pass").val("");
+                        $("#retype-pass").val("");
+                    }
+                    else{
+                        swal('Alert!!',"Unknow Error, Please Contact Our Customer Support","error");
+                    }
+
+                    $('#update-pass-btn').removeClass("btn-secondary");
+                    $('#update-pass-btn').addClass("gradient-highlight");
+                    $('#update-pass-btn').html("Update Password");
+
+                }
+            });
+
+        });
+
+        //Update Transaction Pin
+        $("#pinForm").submit(function(e){
+            e.preventDefault();
+
+            if($("#new-pin").val() != $("#retype-pin").val()){
+                swal("Error!","New Pin & Retype Pin Don't Match.","error");
+                return 0;
+            }
+
+            if($("#old-pin").val().length < 4){$(this).val(null); swal("Opps!!","Pin Length Should Be Four Digits.","info"); return;}
+            if($("#new-pin").val().length < 4){$(this).val(null); swal("Opps!!","Pin Length Should Be Four Digits.","info"); return;}
+            if($("#retype-pin").val().length < 4){$(this).val(null); swal("Opps!!","Pin Length Should Be Four Digits.","info"); return;}
+
+            $('#update-pin-btn').removeClass("gradient-highlight");
+            $('#update-pin-btn').addClass("btn-secondary");
+            $('#update-pin-btn').html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Updating ...');
+            
+            
+            $.ajax({
+                url:'home/includes/route.php?update-pin',
+                data: new FormData($(this)[0]),
+                cache: false,
+                contentType: false,
+                processData: false,
+                method: 'POST',
+                type: 'POST',
+                success:function(resp){
+                    console.log(resp);
+                    if(resp == 0){
+                        swal('Alert!!',"Pin Updated Successfully.","success");
+                        $("#old-pin").val("");
+                        $("#new-pin").val("");
+                        $("#retype-pin").val("");
+                    }
+                    else if(resp == 1){
+                        swal('Alert!!',"Old Pin Is Incorrect.","error");
+                        $("#old-pin").val("");
+                        $("#new-pin").val("");
+                        $("#retype-pin").val("");
+                    }
+                    else{
+                        swal('Alert!!',"Unknow Error, Please Contact Our Customer Support","error");
+                    }
+
+                    $('#update-pin-btn').removeClass("btn-secondary");
+                    $('#update-pin-btn').addClass("gradient-highlight");
+                    $('#update-pin-btn').html("Update Pin");
+
+                }
+            });
+
+        });
+
+        $("#old-pin").on("keyup",function(){
+            if(isNaN($(this).val())){$(this).val(null); swal("Opps!!","Please Enter A Numeric Value.","info"); }
+        });
+
+        $("#new-pin").on("keyup",function(){
+            if(isNaN($(this).val())){$(this).val(null); swal("Opps!!","Please Enter A Numeric Value.","info"); }
+        });
+
+        $("#retype-pin").on("keyup",function(){
+            if(isNaN($(this).val())){$(this).val(null); swal("Opps!!","Please Enter A Numeric Value.","info"); }
+        });
+
+        
+        // ----------------------------------------------------------------------------
+        // Airtime Management
+        // ----------------------------------------------------------------------------
+
+        $("#transpinbtn").click(function(){
+            let actionbtn = $(this).attr("action-btn");
+            $("#transkey").val($("#thetranspin").val());
+            $("#"+actionbtn).click();
+        });
+
+        $("#airtimeamount").on("keyup",function(){
+            var airtimediscount = '';
+            if(!airtimediscount == ""){airtimediscount=JSON.parse(airtimediscount); }
+            var amounttopay=0;
+            var discount=0;
+            var useraccount = getCookie("loginAccount");
+            useraccount=useraccount.replace(/%3D/g,"=");
+            useraccount=atob(useraccount);
+            useraccount = parseInt(useraccount);
+            
+            var amount = $("#airtimeamount").val();
+            amount = parseInt(amount);
+            
+            if($("#networkid").val() == "" || $("#networkid").val() == null){
+                swal("Opps!!","Please Select A Network First.","info");
+                $("#airtimeamount").val(null);
+                return 0;
+            }
+
+            for (i=0; i< airtimediscount.length; i++){
+                if(airtimediscount[i].aNetwork == $("#networkid").val()){
+                    if(useraccount == 3 || useraccount =='3'){discount=airtimediscount[i].aVendorDiscount;}
+                    else if(useraccount == 2 || useraccount =='2'){discount=airtimediscount[i].aAgentDiscount;}
+                    else{discount=airtimediscount[i].aUserDiscount;}
+                    discount=parseInt(discount);
+                    amounttopay=(amount * discount)/100;
+                    discount=100 - discount;
+                }
+            }
+
+            $("#amounttopay").val(amounttopay);
+            $("#discount").val(discount+"%");
+
+        });
+
+
+        //Purchase Airtime
+        $("#airtimeForm").submit(function(e){
+           
+
+            if($("#thetranspin").val() == null || $("#thetranspin").val() == ''){
+                e.preventDefault();
+                $("#transpinbtn").attr("action-btn","airtime-btn");
+                
+                let msg = "You are about to purchase an ";
+                msg+='"'+$('#networkid').find(":selected").attr('networkname') + '"' + " airtime of ";
+                msg+='"' + $("#airtimeamount").val() + '"' + " for the phone number " + '"' + $("#phone").val() +'"';
+                msg+=" <br/> Do you wish to continue?"
+
+                $("#continue-transaction-prompt-msg").html(msg);
+                $("#continue-transaction-prompt-btn").click();
+
+                return;
+            }
+
+            $('#airtime-btn').removeClass("gradient-highlight");
+            $('#airtime-btn').addClass("btn-secondary");
+            $('#airtime-btn').html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Processing ...');
+            
+        });
+
+        // ----------------------------------------------------------------------------
+        // Cable Plan Management
+        // ----------------------------------------------------------------------------
+
+        //If provider selected, get plans
+        $("#cableid").on("change",function(){
+            if($("#cableid").val() == '' || $("#cableid").val() == null){
+                swal("Opps!!","Please Select A Provider First.","info"); 
+            }
+            else{
+                let provider = $("#cableid").val();
+                let useraccount = getCookie("loginAccount");
+                let plans = '';
+                let options = "<option value=''>Select Plan</option>";
+                let price = 0;
+
+                useraccount=useraccount.replace(/%3D/g,"=");
+                useraccount=atob(useraccount);
+                useraccount = parseInt(useraccount);
+
+                if(!plans == ""){
+                    
+                    plans=JSON.parse(plans); 
+                   
+                    for(i=0; i < plans.length; i++){
+                        
+                        if(useraccount == 3 || useraccount =='3'){price = plans[i].vendorprice;}
+                        else if(useraccount == 2 || useraccount =='2'){price = plans[i].agentprice;}
+                        else{price = plans[i].userprice; }
+
+                        if(plans[i].cableprovider == provider){
+                            options+= "<option value='"+plans[i].planid+"' cableprice='"+price+"' planname='"+plans[i].name+" (N"+price+")("+plans[i].day+" Days) '>"+plans[i].name+" (N"+price+")("+plans[i].day+" Days) </option>";
+                        }
+        
+                    }
+
+                }
+
+                $("#cableplan").html(options);
+                $("#amounttopay").val(null);
+               
+            }
+        });
+
+        //If Cable Plan Is Selected, Get And Set The Price
+        $("#cableplan").on("change",function(){
+            $("#amounttopay").val("N"+$('#cableplan').find(":selected").attr('cableprice'));
+            $("#cabledetails").val($('#cableplan').find(":selected").attr('planname'));
+        });
+
+        //Verify cableplan
+        $("#verifycableplanForm").submit(function(e){
+           
+           $('#cable-btn').removeClass("gradient-highlight");
+           $('#cable-btn').addClass("btn-secondary");
+           $('#cable-btn').html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Processing ...');
+           
+       });
+
+       //Purchase Cable Plan
+       $("#cableplanForm").submit(function(e){
+           
+
+           if($("#thetranspin").val() == null || $("#thetranspin").val() == ''){
+               e.preventDefault();
+               $("#transpinbtn").attr("action-btn","cable-btn");
+               
+               let msg = "You are about to purchase ";
+               let cableplan = $('#cabledetails').val();
+               msg+='"'+cableplan+" for the IUC Number " + '"' + $("#iucnumber").val() +'"';
+               msg+=" <br/> Do you wish to continue?"
+
+               $("#continue-transaction-prompt-msg").html(msg);
+               $("#continue-transaction-prompt-btn").click();
+
+               return;
+           }
+
+           $('#data-btn').removeClass("gradient-highlight");
+           $('#data-btn').addClass("btn-secondary");
+           $('#data-btn').html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Processing ...');
+           
+       });
+
+        // ----------------------------------------------------------------------------
+        // Exam Pin Management
+        // ----------------------------------------------------------------------------
+
+        $("#examid").on("change",function(){
+            $("#amounttopay").val(null);
+            $("#examquantity").val(null);
+        });
+
+        $("#examquantity").on("keyup",function(){
+            
+            if($("#examid").val() != null || $("#examquantity").val() != null){
+                let price = parseInt($('#examid').find(":selected").attr('providerprice'));
+                let quantity =parseInt($("#examquantity").val());
+                let amount = 0;
+                
+                if(!(quantity > 0)){quantity=0;}
+                if(!(price > 0)){price=0;}
+
+                amount = price * quantity;
+
+                $("#amounttopay").val("N"+amount);
+            }
+            else{$("#amounttopay").val("0");}
+
+        });
+
+        //Purchase Exam Pin
+       $("#exampinForm").submit(function(e){
+           
+           if($("#thetranspin").val() == null || $("#thetranspin").val() == ''){
+               e.preventDefault();
+               $("#transpinbtn").attr("action-btn","exampin-btn");
+               
+               let msg = "You are about to purchase ";
+               let exampindetails = $('#examid').find(":selected").attr('providername');
+               msg+=$("#examquantity").val()+' token of  '+exampindetails+' ';
+               msg+=" pin at the price of "+$("#amounttopay").val();
+               msg+=" <br/> Do you wish to continue?"
+
+               $("#continue-transaction-prompt-msg").html(msg);
+               $("#continue-transaction-prompt-btn").click();
+
+               return;
+           }
+
+           $('#data-btn').removeClass("gradient-highlight");
+           $('#data-btn').addClass("btn-secondary");
+           $('#data-btn').html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Processing ...');
+           
+       });
+
+
+        // ----------------------------------------------------------------------------
+        // Electricity Management
+        // ----------------------------------------------------------------------------
+
+        //If Amount Input, Get And Set The Price
+        $("#meteramount").on("keyup",function(){
+            let amount = parseInt($('#meteramount').val());
+            let amounttopay = amount+100;
+            $("#amounttopay").val("N"+amounttopay);
+            $("#electricitydetails").val($('#electricityid').find(":selected").attr('providername'));
+        });
+
+        $("#verifyelectricityplanForm").submit(function(e){
+           let amount= parseInt($('#meteramount').val());
+           
+           if(amount < 1000){
+            e.preventDefault();
+            swal("Alert!!","Minimum Unit Purchase Is N1000.","error");
+            return null;
+           }
+
+           $('#electricity-btn').removeClass("gradient-highlight");
+           $('#electricity-btn').addClass("btn-secondary");
+           $('#electricity-btn').html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Processing ...');
+           
+       });
+
+       //Purchase Electricity Plan
+       $("#electricityForm").submit(function(e){
+           
+
+           if($("#thetranspin").val() == null || $("#thetranspin").val() == ''){
+               e.preventDefault();
+               $("#transpinbtn").attr("action-btn","electricity-btn");
+               
+               let msg = "You are about to purchase ";
+               let electricitydetails = $('#electricitydetails').val();
+               msg+='"'+electricitydetails+" ("+$("#metertype").val()+") for the Meter Number " + '"' + $("#meternumber").val() +'"';
+               msg+=" at the price of "+$("#amounttopay").val();
+               msg+=" <br/> Do you wish to continue?"
+
+               $("#continue-transaction-prompt-msg").html(msg);
+               $("#continue-transaction-prompt-btn").click();
+
+               return;
+           }
+
+           $('#data-btn').removeClass("gradient-highlight");
+           $('#data-btn').addClass("btn-secondary");
+           $('#data-btn').html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Processing ...');
+           
+       });
+
+        // ----------------------------------------------------------------------------
+        // Data Plan Management
+        // ----------------------------------------------------------------------------
+
+        //If  notwork selected, empty data type, plan, amount
+        $("#networkid").on("change",function(){
+            $("#datagroup").val(null);
+            $("#dataplan").val(null);
+            $("#amounttopay").val(null);
+        });
+
+        //If data type selected, get plans
+        $("#datagroup").on("change",function(){
+            if($("#networkid").val() == '' || $("#networkid").val() == null){
+                swal("Opps!!","Please Select A Network First.","info"); 
+            }
+            else{
+                let network = $("#networkid").val();
+                let datagroup = $("#datagroup").val();
+                let useraccount = getCookie("loginAccount");
+                let plans = '';
+                let options = "<option value=''>Select Plan</option>";
+                let price = 0;
+
+                useraccount=useraccount.replace(/%3D/g,"=");
+                useraccount=atob(useraccount);
+                useraccount = parseInt(useraccount);
+
+                if(!plans == ""){
+                    
+                    plans=JSON.parse(plans); 
+                
+                    for(i=0; i < plans.length; i++){
+                        
+                        if(useraccount == 3 || useraccount =='3'){price = plans[i].vendorprice;}
+                        else if(useraccount == 2 || useraccount =='2'){price = plans[i].agentprice;}
+                        else{price = plans[i].userprice; }
+
+                        if(plans[i].datanetwork == network && plans[i].type == datagroup){
+                            options+= "<option value='"+plans[i].planid+"' dataprice='"+price+"' dataname='"+plans[i].name+" "+plans[i].type+" (N"+price+")("+plans[i].day+" Days) '>"+plans[i].name+" "+plans[i].type+" (N"+price+")("+plans[i].day+" Days) </option>";
+                        }
+        
+                    }
+
+                }
+
+                $("#dataplan").html(options);
+                $("#amounttopay").val(null);
+               
+            }
+        });
+
+        //If Data Plan Is Selected, Get And Set The Price
+        $("#dataplan").on("change",function(){
+            $("#amounttopay").val("N"+$('#dataplan').find(":selected").attr('dataprice'));
+        });
+
+        //Purchase Data
+        $("#dataplanForm").submit(function(e){
+           
+
+           if($("#thetranspin").val() == null || $("#thetranspin").val() == ''){
+               e.preventDefault();
+               $("#transpinbtn").attr("action-btn","data-btn");
+               
+               let msg = "You are about to purchase ";
+               let dataplan = $('#dataplan').find(":selected").attr('dataname');
+               msg+='"'+$('#networkid').find(":selected").attr('networkname') + '" ' + dataplan +" plan of ";
+               msg+='"' + $("#amounttopay").val() + '"' + " for the phone number " + '"' + $("#phone").val() +'"';
+               msg+=" <br/> Do you wish to continue?"
+
+               $("#continue-transaction-prompt-msg").html(msg);
+               $("#continue-transaction-prompt-btn").click();
+
+               return;
+           }
+
+           $('#data-btn').removeClass("gradient-highlight");
+           $('#data-btn').addClass("btn-secondary");
+           $('#data-btn').html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Processing ...');
+           
+       });
+
+
+        // ----------------------------------------------------------------------------
+        // Contact Page Management
+        // ----------------------------------------------------------------------------
+
+        //Send Contact Message
+        $("#message-form").submit(function(e){
+            e.preventDefault();
+
+            $('#message-btn').removeClass("gradient-highlight");
+            $('#message-btn').addClass("btn-secondary");
+            $('#message-btn').html('<i class="fa fa-spinner fa-spin" aria-hidden="true"></i> Sending ...');
+            
+            
+            $.ajax({
+                url:'home/includes/route.php?save-message',
+                data: new FormData($(this)[0]),
+                cache: false,
+                contentType: false,
+                processData: false,
+                method: 'POST',
+                type: 'POST',
+                success:function(resp){
+                    console.log(resp);
+                    if(resp == 0){
+                        swal('Alert!!',"Message Sent Successfully, We Would Get Back To You Soon.","success");
+                        $("#message-form")[0].reset();
+                    }
+                    else{
+                        swal('Alert!!',"Unexpected Error, Please Contact Our Customer Support Team.","error");
+                    }
+
+                    $('#message-btn').removeClass("btn-secondary");
+                    $('#message-btn').addClass("gradient-highlight");
+                    $('#message-btn').html("Send Message");
+
+                }
+            });
+
+        });
+
+      
+    });
+
+
+    function copyToClipboard(url){
+              var $temp=$("<input>");
+              $("body").append($temp);
+              $temp.val(url).select();
+              document.execCommand("copy");
+              $temp.remove();
+              swal("Success!!","Copied To Clipboard Successfully","success");
+    }
+
+    function calculatePaytackCharges(){
+        let amount = $("#amount").val();
+        amount = parseInt(amount);
+        if(amount > 2000){
+            let amounttopay = amount;
+            amounttopay = (amount * 1.5)/100;
+            amounttopay = amount + amounttopay;
+            $("#amounttopay").val(amounttopay);
+        }
+        else{$("#amounttopay").val(amount);}
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1);
+            if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+        }
+        return "";
+    }
+    
+    function verifyNetwork(){
+        var selNetwork=$('#networkid').find(":selected").attr('networkname');
+        var verNetwork="";
+        var phoneT = document.getElementById('phone').value;
+        var phoneStr = phoneT.substr(0,4);
+        
+        if(phoneT==="" || phoneT.length<6)
+        {
+            document.getElementById('verifyer').innerHTML = "";
+        }
+        else{
+        if(/0702|0704|0803|0806|0703|0706|0813|0816|0810|0814|0903|0906|0913/.test(phoneStr))
+        {
+            verNetwork="MTN";
+        }
+        else if(/0805|0807|0705|0815|0811|0905/.test(phoneStr))
+        {
+            verNetwork="GLO";
+        }
+        else if(/0702|0704|0803|0806|0703|0706|0813|0816|0810|0814|0903|0906|0913/.test(phoneStr))
+        {
+            verNetwork="GIFTING";
+        }
+        else if(/0802|0808|0708|0812|0701|0901|0902|0907|0912/.test(phoneStr))
+        {
+            verNetwork="AIRTEL";
+        }
+        else if(/0809|0818|0817|0908|0909/.test(phoneStr))
+        {
+            verNetwork="9MOBILE";
+        }
+        else if(/0804/.test(phoneStr))
+        {
+            verNetwork="NTEL";
+        }
+        else
+        {
+            verNetwork="Unable to identify network !";
+        }
+        if (selNetwork=="ETISALAT") {
+                selNetwork="9MOBILE";}
+                
+            if (verNetwork==selNetwork)
+            {
+                var ic = "<i class = 'fas fa-check-circle' style ='color: #4BB543;'></i>";
+            }
+            else 
+            {
+                ic = "<i class = 'fas fa-exclamation-triangle' style ='color:#B33A3A'></i>";
+            }
+        
+        document.getElementById('verifyer').innerHTML = "Identified Network: <b>"+verNetwork+"  "+ic+"</b><br><b> Note: </b> Ignore warning for <b>Ported Numbers</b>";
+    }}
+
+    
+</script>
+</body>
+</html>
